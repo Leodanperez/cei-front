@@ -1,0 +1,41 @@
+nav button {
+    padding: 1rem;
+    font-size: inherit;
+}
+
+form {
+    padding-top: 1rem;
+}
+  
+label {
+    display: block;
+    margin: .5em 0;
+    font-weight: bold;
+}
+  
+
+.table-head {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table-head td, .table-head th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.table-head tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+.table-head tr:hover {
+    background-color: #ddd;
+}
+
+.table-head th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
