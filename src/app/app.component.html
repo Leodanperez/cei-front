@@ -20,8 +20,15 @@
   <input id="country" type="text" formControlName="country">
   <button 
     type="button" 
+    *ngIf="!isShowUpdate"
     [disabled]="!clientForm.valid"
     (click)="createClient()">Save Changes</button>
+
+  <button 
+    type="button"
+    *ngIf="isShowUpdate"
+    [disabled]="!clientForm.valid"
+    (click)="updateClient()">Update Changes</button>
 </form>
 
 <hr>
@@ -35,16 +42,21 @@
       <th>Phone</th>
       <th>Dni</th>
       <th>Country</th>
+      <th>Opciones</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let client of clients">
-      <td>{{client.firstName}}</td>
-      <td>{{client.lastName}}</td>
-      <td>{{client.email}}</td>
-      <td>{{client.phone}}</td>
-      <td>{{client.dni}}</td>
-      <td>{{client.country}}</td>
-    </tr>
+    <tr *ngFor="let i of clients">
+      <td>{{i.firstName}}</td>
+      <td>{{i.lastName}}</td>
+      <td>{{i.email}}</td>
+      <td>{{i.phone}}</td>
+      <td>{{i.dni}}</td>
+      <td>{{i.country}}</td>
+      <td>
+        <button (click)="getClientById(i.id)">Edit</button>
+        <button (click)="deleteClient(i.id)">Delete</button>
+      </td>
+    </tr> 
   </tbody>
 </table>

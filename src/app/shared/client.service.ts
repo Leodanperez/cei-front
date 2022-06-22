@@ -30,6 +30,29 @@ export class ClientService {
     )
   }
 
+  deleteClient(id: number): Observable<any> {
+    return this.http.delete(`${this.endpoint}clients/${id}`, { headers: this.headers })
+    .pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  getClientById(id: number) {
+    return this.http.get(`${this.endpoint}clients/${id}`, { headers: this.headers })
+    .pipe(
+      map((res: any) => {
+        return res || {};
+      }
+    ))
+  }
+
+  updateClient(id: number, client: Client) {
+    return this.http.put(`${this.endpoint}clients/${id}`, client, { headers: this.headers })
+    .pipe(
+      catchError(this.handleError)
+    )
+  }
+
   handleError(err: HttpErrorResponse) {
     let msg = '';
     if (err.error instanceof ErrorEvent) {
